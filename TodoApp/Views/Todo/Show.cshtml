@@ -40,22 +40,22 @@
             <li>@item.Title => @item.Deadline</li>
 
             <div class="buttons">
-                    @if(item.IsDone.Value == true && item.Deadline < DateTime.Now)
-                    {
-                        <p style="color:green;">Task ugurla yerine yetirilmisdir.</p>
-                    }
-                    @if(item.IsDone.Value == false && item.Deadline <= DateTime.Now)
-                    {
-                        <p style="color:yellow">Gozlemededir.</p>
-                    }
-                    @if(item.IsDone.Value == false && item.Deadline >= DateTime.Now)
-                    {
-                        <p style="color:red;">Yerine yetirilmedi.</p>
-                    }
-                    @if (item.IsDone.Value == false && item.Deadline < DateTime.Now)
-                    {
-                    <a class="btn btn-success" href="/Todo/Finish/@item.Id">Finish</a>
-                    }
+                    @if (item.IsDone.Value == true)
+        {
+            <p style="color:green;">Task ugurla yerine yetirilmisdir.</p>
+        }
+            @if (item.IsDone.Value == false && item.Deadline > DateTime.Now)
+        {
+            <p style="color:yellow">Gozlemededir.</p>
+        }
+        @if (item.IsDone.Value == false && item.Deadline <= DateTime.Now)
+        {
+            <p style="color:red;">Yerine yetirilmedi.</p>
+        }
+        @if (item.IsDone.Value == false && item.Deadline > DateTime.Now)
+        {
+        <a class="btn btn-success" href="/Todo/Finish/@item.Id">Finish</a>
+        }
                     <div>
                     <a href="/Todo/Details/@item.Id" class="btn btn-primary">Show</a>
                     <a href="/Todo/Update/@item.Id" class="btn btn-warning">Edit</a>
