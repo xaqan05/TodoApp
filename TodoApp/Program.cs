@@ -12,11 +12,10 @@ namespace TodoApp
             var app = builder.Build();
 
 
-            //app.MapGet("/bdu", () => "12312312312");
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Show}/{id?}");
+                pattern: "{controller=Todo}/{action=Show}/{id?}");
 
             app.Run();
         }
