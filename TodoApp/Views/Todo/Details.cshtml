@@ -59,7 +59,7 @@
     <div class="header">
         <h1>Todo List</h1>
         <div>
-            @if (Model.IsDone == false)
+            @if (Model.IsDone.Value == false && Model.Deadline > DateTime.Now)
             {
                 <a class="btn btn-success" href="/Todo/Finish/@Model.Id">Finish</a>
             }
